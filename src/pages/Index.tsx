@@ -1,14 +1,31 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import React from 'react';
+import MainDashboardLayout from '../components/layout/MainDashboardLayout';
+import PageHeader from '../components/Dashboard/PageHeader';
+import MetricsSection from '../components/Dashboard/MetricsSection';
+import LeadTrackingChart from '../components/Dashboard/LeadTrackingChart';
+import InsightCards from '../components/Dashboard/InsightCards';
 
-const Index = () => {
+/**
+ * DashboardPage is the main view for the Leads Dashboard.
+ * It assembles various dashboard components within the MainDashboardLayout.
+ * This page corresponds to the "Dashboard Overview" target page.
+ */
+const DashboardPage: React.FC = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
-      </div>
-    </div>
+    <MainDashboardLayout>
+      {/* PageHeader displays the title 'Dashboard' and tabs/date range pickers */}
+      <PageHeader title="Dashboard" />
+
+      {/* MetricsSection displays funnel overview and sources pie chart */}
+      <MetricsSection />
+
+      {/* LeadTrackingChart visualizes leads over time */}
+      <LeadTrackingChart />
+
+      {/* InsightCards displays key insights like reasons for lost leads and other data */}
+      <InsightCards />
+    </MainDashboardLayout>
   );
 };
 
-export default Index;
+export default DashboardPage;
